@@ -1,0 +1,14 @@
+{
+  "name": "fec",
+  "version": "1.0.0",
+  "description": "simple cache",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aaron Freidus",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
