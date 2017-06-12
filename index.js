@@ -1,4 +1,5 @@
 const _ = require('lodash');
+let validSettings = ['stores', 'cacheLogic', 'limit', 'execution', 'storageType']
 
 class AssetCache {
     constructor( settings = {} ) {
@@ -12,6 +13,9 @@ class AssetCache {
         **/
 
         this.stores = [];
+        this.cacheLogic ='';
+        this.limit = 50;
+        this.execution = 'sync'
     }
     updateCache(cat, index, newItems) {
       
