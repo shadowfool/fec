@@ -1,5 +1,11 @@
 const assert = require('assert');
-const Storage = require('')
+const Storage = require('../index.js');
+
+let window = {};
+
+window.sessionStorage = sessionStorage = require('./mockStorage');
+window.localStorage = localStorage = require('./mockStorage');
+
 
 describe('fec', () => {
     let Instance = null;
@@ -11,10 +17,10 @@ describe('fec', () => {
 	      	limit: '50',
 	      	stores: ["fruits, cars, langs"],
 	      	async: false
-	      };
-
-          Instance = new Storage
-        })
+	      },
+	      Instance = new Storage( settingsObject );
+        Instance.setItem('blue', 'green')
+    })
 	})
 
 	describe('getItem', () => {

@@ -24,9 +24,11 @@ class AssetCache {
     getItem( key = '' )
     {
         if(typeof key !== 'string') return this.errorReporting(key, 'string');
-        return JSON.parse(sessionStorage.getItem( key )) || {}
+        let item = sessionStorage.getItem( key )
+        if(isValidJSONString(item)) return JSON.parse(item);
+        return item;
     }
-
+    
     addStore( storeName, type = [] )
     {
 
@@ -39,7 +41,33 @@ class AssetCache {
 
     setItem( key = '', item = '' )
     {
+        
+    }
 
+    isValidJSONString( string )
+    {
+      try
+      {
+         JSON.parse( string )
+      } 
+      catch(e)
+      {
+        return false
+      } 
+      return true;
+    }
+
+    isValidJSONObject( object )
+    {
+      try
+      {
+         JSON.stringify( object )
+      } 
+      catch(e)
+      {
+        return false
+      } 
+      return true;
     }
 
     errorReporting( given, expected)
